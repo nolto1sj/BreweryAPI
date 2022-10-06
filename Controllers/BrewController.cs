@@ -38,5 +38,11 @@ namespace BreweryAPI.Controllers
             return brews;
         }
 
+        [HttpGet("{brewName}")]
+        public Brew GetSingleBrew(string brewName)
+        {
+            return _db.Brews.FirstOrDefault(b => b.BrewName == brewName);
+        }
+
     }
 }

@@ -33,5 +33,11 @@ namespace BreweryAPI.Controllers
             List<Brewery> breweries = _db.Breweries.ToList();
             return breweries;
         }
+
+        [HttpGet("{brewery}")]
+        public Brewery GetSingleBrewery(string brewery)
+        {
+            return _db.Breweries.FirstOrDefault(b => b.BreweryName == brewery);
+        }
     }
 }
