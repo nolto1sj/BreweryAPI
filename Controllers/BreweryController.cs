@@ -11,15 +11,18 @@ namespace BreweryAPI.Controllers
     [ApiController]
     public class BreweryController : ControllerBase
     {
+        BreweryDBContext _db = new BreweryDBContext();
+
         [HttpPost("add")]
-        public Brewery AddBrewery(int id ,string name, string city , string country)
+        public Brewery AddBrewery(string name, string city , string country)
         {
             Brewery b = new Brewery() {
-                Id = id,
                 BreweryName = name,
                 City = city,
                 Country = country
             };
+            _db.Breweries.Add(b);
+            _db.SaveChanges();
 
             return b;
         }
