@@ -26,5 +26,12 @@ namespace BreweryAPI.Controllers
 
             return b;
         }
+
+        [HttpGet]
+        public List<Brewery> GetAllBrews()
+        {
+            List<Brewery> breweries = _db.Breweries.ToList();
+            return breweries;
+        }
     }
 }
