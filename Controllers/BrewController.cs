@@ -44,5 +44,26 @@ namespace BreweryAPI.Controllers
             return _db.Brews.FirstOrDefault(b => b.BrewName == brewName);
         }
 
+        [HttpPut("update")]
+
+        public void UpdateBrew(string brewName, double abv, string category, string description, bool isAvailable, string breweryName)
+        {
+            Brew b = _db.Brews.FirstOrDefault(b => b.BrewName == brewName);
+
+            b.BrewName = brewName;
+            b.Abv = abv;
+            b.Category = category;
+            b.Description = description;
+            b.IsAvailable = isAvailable;
+            b.BreweryId = _db.Breweries.FirstOrDefault(b => b.BreweryName == breweryName).Id;
+
+            _db.Update(b);
+            _db.SaveChanges();
+
+
+
+        }
+
+
     }
 }
