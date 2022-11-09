@@ -12,7 +12,6 @@ namespace BreweryAPI
         public string Description { get; set; } = null!;
         public bool IsAvailable { get; set; }
         public int? BreweryId { get; set; }
-
         public virtual Brewery? Brewery { get; set; }
     }
 }

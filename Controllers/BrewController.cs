@@ -59,11 +59,6 @@ namespace BreweryAPI.Controllers
 
             _db.Update(b);
             _db.SaveChanges();
-
-
-
         }
-
-
     }
 }

@@ -9,7 +9,6 @@ namespace BreweryAPI
         {
             Brews = new HashSet<Brew>();
         }
-
         public int Id { get; set; }
         public string BreweryName { get; set; } = null!;
         public string? City { get; set; }
